@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./nav.module.css";
 import Text from "../../atoms/Text/Text";
 import Avatar from "../../atoms/Avatar/Avatar";
+import IconButton from "../../molecules/IconButton/IconButton";
 const Nav = () => {
   const [currentSection, setCurrentSection] = useState("Last news");
   return (
@@ -49,7 +50,7 @@ const Nav = () => {
             }
           />
         </div>
-        <div></div>
+        <IconButton type={"bars"} size="xxlg" onClick={() => {}} />
       </div>
     </nav>
   );
