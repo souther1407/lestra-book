@@ -1,0 +1,29 @@
+.nav {
+  padding: 8px;
+  box-shadow: 0px 2px 8px gainsboro;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.sections {
+  display: flex;
+}
+
+.sections > *:not(:last-child) {
+  margin-right: 24px;
+}
+
+.section {
+  padding-bottom: 8px;
+  cursor: pointer;
+}
+
+.section.current {
+  border-bottom: 2px solid var(--primary);
+}

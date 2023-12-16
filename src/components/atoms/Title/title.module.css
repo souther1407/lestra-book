@@ -1,0 +1,28 @@
+.title {
+  font-family: "Inter", sans-serif;
+  color: var(--textDark);
+}
+
+.sm {
+  font-size: 0.8rem;
+}
+
+.md {
+  font-size: 1rem;
+}
+
+.lg {
+  font-size: 1.2rem;
+}
+
+.xlg {
+  font-size: 1.4rem;
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.secondary {
+  color: var(--secondary);
+}

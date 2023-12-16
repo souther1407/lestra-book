@@ -1,0 +1,43 @@
+.postCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gainsboro;
+  box-shadow: 2px 2px 8px gainsboro;
+  background-color: white;
+  width: 520px;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.postCard header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.postCard .media {
+  height: 300px;
+}
+.postCard .author {
+  display: flex;
+}
+
+.postCard .authorInfo {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.postCard main {
+  margin-bottom: 20px;
+}
+.postCard footer {
+  display: flex;
+  justify-content: space-around;
+}
+.postCard .reaction {
+  display: flex;
+}
+.postCard .reaction > :first-child {
+  margin-right: 8px;
+}

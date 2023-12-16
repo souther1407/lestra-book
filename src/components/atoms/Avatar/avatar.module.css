@@ -1,0 +1,22 @@
+.avatar {
+  border-radius: 50%;
+}
+
+.sm {
+  width: 2rem;
+  height: 2rem;
+}
+
+.md {
+  width: 3rem;
+  height: 3rem;
+}
+
+.lg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.bordered {
+  border: 4px solid var(--success);
+}
