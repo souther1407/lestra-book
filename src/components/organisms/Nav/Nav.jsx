@@ -3,8 +3,10 @@ import styles from "./nav.module.css";
 import Text from "../../atoms/Text/Text";
 import Avatar from "../../atoms/Avatar/Avatar";
 import IconButton from "../../molecules/IconButton/IconButton";
+import Drawer from "../../atoms/Drawer/Drawer";
 const Nav = () => {
   const [currentSection, setCurrentSection] = useState("Last news");
+  const [shoDrawer, setShowDrawer] = useState(false);
   return (
     <nav className={styles.nav}>
       <p>Logo</p>
@@ -50,7 +52,12 @@ const Nav = () => {
             }
           />
         </div>
-        <IconButton type={"bars"} size="xxlg" onClick={() => {}} />
+        <IconButton
+          type={"bars"}
+          size="xxlg"
+          onClick={() => setShowDrawer(true)}
+        />
+        <Drawer show={shoDrawer} onClose={() => setShowDrawer(false)} />
       </div>
     </nav>
   );

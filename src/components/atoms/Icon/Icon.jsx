@@ -1,7 +1,7 @@
 import React from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 const parseSize = (size) => {
   switch (size) {
     case "sm":
@@ -25,6 +25,7 @@ const Icon = ({ type, size = "md", color }) => {
     heart: <FaRegHeart {...props} />,
     heartFilled: <FaHeart {...props} />,
     bars: <FaBars {...props} />,
+    close: <FaTimes {...props} />,
   };
   return icons[type];
 };
