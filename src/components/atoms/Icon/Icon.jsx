@@ -7,6 +7,7 @@ import {
   FaGoogle,
   FaGithub,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
@@ -39,6 +40,7 @@ const Icon = ({ type, size = "md", color }) => {
     loading: <AiOutlineLoading3Quarters {...props} />,
     google: <FaGoogle {...props} />,
     github: <FaGithub {...props} />,
+    twitter: <FaXTwitter {...props} />,
   };
   return icons[type];
 };

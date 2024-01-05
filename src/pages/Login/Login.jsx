@@ -57,6 +57,11 @@ const Login = () => {
               Github
             </TextButton>
           </div>
+          <div className={styles.btn}>
+            <TextButton icon={"twitter"} color="black">
+              Twitter
+            </TextButton>
+          </div>
         </div>
       </div>
     </div>
