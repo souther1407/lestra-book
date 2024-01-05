@@ -1,10 +1,10 @@
 import React from "react";
 import Text from "../../components/atoms/Text/Text";
 import Title from "../../components/atoms/Title/Title";
-
 import PostCard from "../../components/organisms/PostCard/PostCard";
 import styles from "./posts.module.css";
 import Nav from "../../components/organisms/Nav/Nav";
+
 const Posts = () => {
   return (
     <div className={styles.posts}>

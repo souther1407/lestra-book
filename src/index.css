@@ -21,9 +21,16 @@ button {
 button:focus {
   outline: none;
 }
+input {
+  border: transparent;
+  background: none;
+}
+input:focus {
+  outline: none;
+}
 :root {
   --bg-light: #fdfdfd;
-
+  --dark-transparent: rgba(36, 36, 36, 0.397);
   --textDark: #222;
   --textLight: #eee;
   --primary: #f86f6f;
@@ -31,4 +38,5 @@ button:focus {
   --secondary: #ff35c2;
   --secondary-light: #ff7dd8;
   --success: #4fa8fb;
+  --black: var(--textDark);
 }

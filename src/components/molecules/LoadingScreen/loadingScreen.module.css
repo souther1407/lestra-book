@@ -1,0 +1,24 @@
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.loadingScreen {
+  background-color: var(--dark-transparent);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000000000000000000;
+}
+
+.loadingScreen > * {
+  animation: spin 0.5s linear 0s infinite;
+}

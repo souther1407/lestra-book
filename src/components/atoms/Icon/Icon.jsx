@@ -1,7 +1,15 @@
 import React from "react";
-import { FaRegHeart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
-import { FaBars, FaTimes } from "react-icons/fa";
+import {
+  FaRegHeart,
+  FaHeart,
+  FaBars,
+  FaTimes,
+  FaGoogle,
+  FaGithub,
+} from "react-icons/fa";
+
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 const parseSize = (size) => {
   switch (size) {
     case "sm":
@@ -14,6 +22,8 @@ const parseSize = (size) => {
       return "1.4rem";
     case "xxlg":
       return "1.8rem";
+    case "big":
+      return "5rem";
   }
 };
 const Icon = ({ type, size = "md", color }) => {
@@ -26,6 +36,9 @@ const Icon = ({ type, size = "md", color }) => {
     heartFilled: <FaHeart {...props} />,
     bars: <FaBars {...props} />,
     close: <FaTimes {...props} />,
+    loading: <AiOutlineLoading3Quarters {...props} />,
+    google: <FaGoogle {...props} />,
+    github: <FaGithub {...props} />,
   };
   return icons[type];
 };

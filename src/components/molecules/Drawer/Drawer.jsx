@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./drawer.module.css";
-import Icon from "../Icon/Icon";
+import Icon from "../../atoms/Icon/Icon";
 const Drawer = ({ show, children, onClose }) => {
   return (
     <div

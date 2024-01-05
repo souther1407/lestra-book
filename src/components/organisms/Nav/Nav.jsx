@@ -3,13 +3,14 @@ import styles from "./nav.module.css";
 import Text from "../../atoms/Text/Text";
 import Avatar from "../../atoms/Avatar/Avatar";
 import IconButton from "../../molecules/IconButton/IconButton";
-import Drawer from "../../atoms/Drawer/Drawer";
+import Drawer from "../../molecules/Drawer/Drawer";
+import ReactLogo from "../../../assets/react.svg";
 const Nav = () => {
   const [currentSection, setCurrentSection] = useState("Last news");
   const [shoDrawer, setShowDrawer] = useState(false);
   return (
     <nav className={styles.nav}>
-      <p>Logo</p>
+      <img src={ReactLogo} className={styles.logo} />
       <div className={styles.sections}>
         <div
           className={`${styles.section} ${

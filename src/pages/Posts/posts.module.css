@@ -13,3 +13,9 @@
 .postsList > *:not(:last-child) {
   margin-bottom: 32px;
 }
+
+@media screen and (max-width: 600px) {
+  .postsList {
+    padding: 8px;
+  }
+}

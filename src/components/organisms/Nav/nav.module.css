@@ -34,3 +34,7 @@
 .options > *:not(:last-child) {
   margin-right: 8px;
 }
+.logo {
+  width: 3rem;
+  filter: drop-shadow(0 0 8px #65f7ef);
+}

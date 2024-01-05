@@ -3,17 +3,78 @@
   width: 100%;
   padding: 8px 0px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s ease-in;
+  gap: 8px;
 }
 
 .fulled.primary {
   background: var(--primary);
 }
+.fulled.primary:hover {
+  background-color: var(--primary-light);
+}
+
+.fulled.primary > svg {
+  fill: var(--textLight);
+}
+
 .fulled.primary > p {
   color: var(--textLight);
 }
 
 .fulled.secondary {
   background: var(--secondary);
+  color: var(--textLight);
+}
+
+.fulled.secondary:hover {
+  background-color: var(--secondary-light);
+}
+
+.fulled.secondary > svg {
+  fill: var(--textLight);
+}
+
+.fulled.secondary > p {
+  color: var(--textLight);
+}
+
+.fulled.success {
+  background: var(--success);
+  color: var(--textLight);
+}
+
+.fulled.success:hover {
+  background-color: var(--success);
+}
+
+.fulled.success > svg {
+  fill: var(--textLight);
+}
+
+.fulled.success > p {
+  color: var(--textLight);
+}
+
+/**/
+
+.fulled.black {
+  background: var(--black);
+  color: var(--textLight);
+}
+
+.fulled.black:hover {
+  background-color: var(--black);
+}
+
+.fulled.black > svg {
+  fill: var(--textLight);
+}
+
+.fulled.black > p {
   color: var(--textLight);
 }
 
