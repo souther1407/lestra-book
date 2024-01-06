@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./nav.module.css";
 import Text from "../../atoms/Text/Text";
 import Avatar from "../../atoms/Avatar/Avatar";
@@ -6,20 +6,29 @@ import IconButton from "../../molecules/IconButton/IconButton";
 import Drawer from "../../molecules/Drawer/Drawer";
 import { useUserStore } from "../../../stores/useUserStore.js";
 import Logo from "../../../assets/LogoPosta.png";
+import { useNavigate } from "react-router-dom";
+import { CHAT, LAST_NEWS, MY_POSTS } from "../../../constants/routes.js";
+import { useRouteStore } from "../../../stores/useRouteStore.js";
 
 const Nav = () => {
-  const [currentSection, setCurrentSection] = useState("Last news");
   const [shoDrawer, setShowDrawer] = useState(false);
   const { credentials } = useUserStore((state) => state);
+  const navigate = useNavigate();
+  const { setRoute, currentRoute } = useRouteStore((state) => state);
+
+  useEffect(() => {
+    navigate(currentRoute);
+  }, [currentRoute]);
+
   return (
     <nav className={styles.nav}>
       <img src={Logo} className={styles.logo} />
       <div className={styles.sections}>
         <div
           className={`${styles.section} ${
-            currentSection === "Last news" && styles.current
+            currentRoute === LAST_NEWS && styles.current
           }`}
-          onClick={() => setCurrentSection("Last news")}
+          onClick={() => setRoute(LAST_NEWS)}
         >
           <Text bold size="lg" color={"primary"}>
             Últimas noticias
@@ -27,9 +36,9 @@ const Nav = () => {
         </div>
         <div
           className={`${styles.section} ${
-            currentSection === "Chat" && styles.current
+            currentRoute === CHAT && styles.current
           }`}
-          onClick={() => setCurrentSection("Chat")}
+          onClick={() => setRoute(CHAT)}
         >
           <Text bold size="lg" color={"primary"}>
             Chat
@@ -37,9 +46,9 @@ const Nav = () => {
         </div>
         <div
           className={`${styles.section} ${
-            currentSection === "My posts" && styles.current
+            currentRoute === MY_POSTS && styles.current
           }`}
-          onClick={() => setCurrentSection("My posts")}
+          onClick={() => setRoute(MY_POSTS)}
         >
           <Text bold size="lg" color={"primary"}>
             Mis posts
