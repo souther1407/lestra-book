@@ -34,7 +34,7 @@ const PostCard = ({
           <Text>{likes}</Text>
         </div>
         <div className={styles.reaction}>
-          <HeartButton />
+          <Icon type="bubble" size="lg" color={"var(--success)"}></Icon>
           <Text>{comments}</Text>
         </div>
       </footer>
