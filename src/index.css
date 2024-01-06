@@ -40,3 +40,10 @@ input:focus {
   --success: #4fa8fb;
   --black: var(--textDark);
 }
+
+@media screen and (max-width: 480px){
+
+  html,body{
+    font-size: 12px;
+  }
+}
