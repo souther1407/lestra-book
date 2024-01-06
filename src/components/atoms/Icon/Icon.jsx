@@ -11,7 +11,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { IoChatbubbleOutline } from "react-icons/io5";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-
+import { FiSend } from "react-icons/fi";
 const parseSize = (size) => {
   switch (size) {
     case "sm":
@@ -28,9 +28,9 @@ const parseSize = (size) => {
       return "5rem";
   }
 };
-const Icon = ({ type, size = "md", color }) => {
+const Icon = ({ type, size = "md", color, colorStroke = color }) => {
   const props = {
-    stroke: color,
+    stroke: colorStroke,
     fill: color,
     size: parseSize(size),
   };
@@ -44,6 +44,7 @@ const Icon = ({ type, size = "md", color }) => {
     google: <FaGoogle {...props} />,
     github: <FaGithub {...props} />,
     twitter: <FaXTwitter {...props} />,
+    send: <FiSend {...props} />,
   };
   return icons[type];
 };
