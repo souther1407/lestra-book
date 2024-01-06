@@ -8,6 +8,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { IoChatbubbleOutline } from "react-icons/io5";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
@@ -29,11 +30,13 @@ const parseSize = (size) => {
 };
 const Icon = ({ type, size = "md", color }) => {
   const props = {
+    stroke: color,
     fill: color,
     size: parseSize(size),
   };
   const icons = {
     heart: <FaRegHeart {...props} />,
+    bubble: <IoChatbubbleOutline {...props} />,
     heartFilled: <FaHeart {...props} />,
     bars: <FaBars {...props} />,
     close: <FaTimes {...props} />,

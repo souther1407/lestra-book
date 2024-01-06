@@ -6,7 +6,7 @@ const HeartButton = () => {
   return (
     <div
       className={`${styles.heartBtn} ${clicked && styles.fulled}`}
-      onClick={() => setCliked(true)}
+      onClick={() => setCliked(clicked ? false : true)}
     >
       {!clicked ? (
         <Icon type={"heart"} size="lg" color={"var(--secondary)"} />
