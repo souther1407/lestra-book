@@ -4,10 +4,13 @@ import Text from "../../atoms/Text/Text";
 import Avatar from "../../atoms/Avatar/Avatar";
 import IconButton from "../../molecules/IconButton/IconButton";
 import Drawer from "../../molecules/Drawer/Drawer";
+import { useUserStore } from "../../../stores/useUserStore.js";
 import Logo from "../../../assets/LogoPosta.png";
+
 const Nav = () => {
   const [currentSection, setCurrentSection] = useState("Last news");
   const [shoDrawer, setShowDrawer] = useState(false);
+  const { credentials } = useUserStore((state) => state);
   return (
     <nav className={styles.nav}>
       <img src={Logo} className={styles.logo} />
@@ -49,7 +52,9 @@ const Nav = () => {
             bordered
             size="md"
             src={
-              "https://imgs.search.brave.com/6Logd6Iw8_Z7K-vEiVPKlvlRn3Xl2d4fMUMaVKMMQLc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA2LzE2LzExLzcw/LzM2MF9GXzYxNjEx/NzA3MV9OdTJLbVNl/bjcxYXBrYlhjQVlP/T2YyampjTEptcDRs/Qi5qcGc"
+              credentials
+                ? credentials.photoURL
+                : "https://imgs.search.brave.com/6Logd6Iw8_Z7K-vEiVPKlvlRn3Xl2d4fMUMaVKMMQLc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA2LzE2LzExLzcw/LzM2MF9GXzYxNjEx/NzA3MV9OdTJLbVNl/bjcxYXBrYlhjQVlP/T2YyampjTEptcDRs/Qi5qcGc"
             }
           />
         </div>
