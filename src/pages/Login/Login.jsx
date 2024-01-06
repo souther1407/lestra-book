@@ -5,7 +5,11 @@ import TextButton from "../../components/molecules/TextButton/TextButton";
 import TextTypeEffect from "../../components/molecules/TextTypeEffect/TextTypeEffect";
 import Logo from "../../components/atoms/Logo/Logo";
 import { auth } from "../../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 const Login = () => {
   const [input, setInput] = useState({
     user: "",
@@ -22,6 +26,15 @@ const Login = () => {
         alert("Logueado");
       })
       .catch((err) => alert(err.message));
+  };
+
+  const handleLoginGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((credentials) => {
+        alert("Listo!");
+      })
+      .catch((error) => alert(error.message));
   };
   return (
     <div className={styles.login}>
@@ -48,7 +61,11 @@ const Login = () => {
         <TextButton onClick={handleLogin}>Login</TextButton>
         <div className={styles.loginSocialMedia}>
           <div className={styles.btn}>
-            <TextButton icon={"google"} color="success">
+            <TextButton
+              icon={"google"}
+              color="success"
+              onClick={handleLoginGoogle}
+            >
               Google
             </TextButton>
           </div>
