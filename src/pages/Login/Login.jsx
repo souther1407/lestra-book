@@ -4,38 +4,20 @@ import Input from "../../components/atoms/Input/Input";
 import TextButton from "../../components/molecules/TextButton/TextButton";
 import TextTypeEffect from "../../components/molecules/TextTypeEffect/TextTypeEffect";
 import Logo from "../../components/atoms/Logo/Logo";
-import { auth } from "../../firebase";
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from "firebase/auth";
+
+import { useLogin } from "../../hooks/useLogin";
+
 const Login = () => {
   const [input, setInput] = useState({
     user: "",
     password: "",
   });
+  const { loginGoogle, loginUserPass } = useLogin();
   const [loading, setLoading] = useState(false);
   const handleChange = (id, value) => {
     setInput((prev) => ({ ...prev, [id]: value }));
   };
-  const handleLogin = () => {
-    signInWithEmailAndPassword(auth, input.user, input.password)
-      .then(async (credentials) => {
-        localStorage.setItem("token", await credentials.user.getIdToken());
-        alert("Logueado");
-      })
-      .catch((err) => alert(err.message));
-  };
 
-  const handleLoginGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((credentials) => {
-        alert("Listo!");
-      })
-      .catch((error) => alert(error.message));
-  };
   return (
     <div className={styles.login}>
       <div className={styles.welcome}>
@@ -58,14 +40,10 @@ const Login = () => {
           onChange={handleChange}
           value={input.password}
         />
-        <TextButton onClick={handleLogin}>Login</TextButton>
+        <TextButton onClick={() => loginUserPass(input.user,input.password)}>Login</TextButton>
         <div className={styles.loginSocialMedia}>
           <div className={styles.btn}>
-            <TextButton
-              icon={"google"}
-              color="success"
-              onClick={handleLoginGoogle}
-            >
+            <TextButton icon={"google"} color="success" onClick={loginGoogle}>
               Google
             </TextButton>
           </div>
