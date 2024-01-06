@@ -38,3 +38,19 @@
   width: 3rem;
   filter: drop-shadow(0 0 8px #65f7ef);
 }
+
+@media screen and (max-width: 480px) {
+
+  .nav{
+    justify-content: space-around;
+  }
+  .logo {
+    display: none;
+  }
+
+  .profile{
+    display: none;
+  }
+
+
+}
