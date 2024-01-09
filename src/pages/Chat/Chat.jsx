@@ -17,7 +17,7 @@ const Chat = () => {
                 size="md"
                 src="https://imgs.search.brave.com/VJdZ7LwDiZiFQeFoniOSwUEsz5OkKwAZG38N2G3Uq_Q/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cGF0aHNvY2lhbC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDUvYXZ0YXIt/aW1nMi1uZXctMS5q/cGVn"
               />
-              <Text>Igacia Lestrada</Text>
+              <Text>Ignacia Lestrada</Text>
             </div>
           ))}
         </section>
