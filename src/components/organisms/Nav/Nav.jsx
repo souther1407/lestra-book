@@ -3,6 +3,7 @@ import styles from "./nav.module.css";
 import Text from "../../atoms/Text/Text";
 import Avatar from "../../atoms/Avatar/Avatar";
 import IconButton from "../../molecules/IconButton/IconButton";
+import TextButton from "../../molecules/TextButton/TextButton";
 import Drawer from "../../molecules/Drawer/Drawer";
 import { useUserStore } from "../../../stores/useUserStore.js";
 import Logo from "../../../assets/LogoPosta.png";
@@ -11,7 +12,7 @@ import { CHAT, LAST_NEWS, MY_POSTS } from "../../../constants/routes.js";
 import { useRouteStore } from "../../../stores/useRouteStore.js";
 
 const Nav = () => {
-  const [shoDrawer, setShowDrawer] = useState(false);
+  const [showDrawer, setShowDrawer] = useState(false);
   const { credentials } = useUserStore((state) => state);
   const navigate = useNavigate();
   const { setRoute, currentRoute } = useRouteStore((state) => state);
@@ -72,7 +73,9 @@ const Nav = () => {
           size="xxlg"
           onClick={() => setShowDrawer(true)}
         />
-        <Drawer show={shoDrawer} onClose={() => setShowDrawer(false)} />
+        <Drawer show={showDrawer} onClose={() => setShowDrawer(false)}>
+          <TextButton>Cerrar Sesion</TextButton>
+        </Drawer>
       </div>
     </nav>
   );
