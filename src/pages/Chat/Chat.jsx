@@ -11,7 +11,7 @@ const Chat = () => {
       <Nav />
       <main className={styles.main}>
         <section className={styles.onlines}>
-          {Array.from("12414141").map((i) => (
+          {Array.from("1234232333asfasfassf5").map((i) => (
             <div className={styles.card}>
               <Avatar
                 size="md"
