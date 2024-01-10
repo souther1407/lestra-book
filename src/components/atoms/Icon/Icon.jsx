@@ -7,10 +7,14 @@ import {
   FaGoogle,
   FaGithub,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { IoChatbubbleOutline, IoImagesOutline } from "react-icons/io5";
-import { MdVideoCameraFront } from "react-icons/md";
-import { FaFaceGrin } from "react-icons/fa6";
+import { FaXTwitter, FaLocationDot, FaFaceGrin } from "react-icons/fa6";
+import {
+  IoChatbubbleOutline,
+  IoImagesOutline,
+  IoPersonAdd,
+} from "react-icons/io5";
+import { MdVideoCameraFront, MdGifBox } from "react-icons/md";
+import { HiDotsHorizontal } from "react-icons/hi";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FiSend } from "react-icons/fi";
@@ -50,6 +54,11 @@ const Icon = ({ type, size = "md", color, colorStroke = color }) => {
     camera: <MdVideoCameraFront {...props} />,
     image: <IoImagesOutline {...props} />,
     smile: <FaFaceGrin {...props} />,
+    person: <IoPersonAdd {...props} />,
+    location: <FaLocationDot {...props} />,
+    gif: <MdGifBox {...props} />,
+    dots: <HiDotsHorizontal {...props} />,
+    
   };
   return icons[type];
 };

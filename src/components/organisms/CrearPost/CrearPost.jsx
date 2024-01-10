@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Avatar from "../../atoms/Avatar/Avatar";
 import Icon from "../../atoms/Icon/Icon";
 import Text from "../../atoms/Text/Text";
+import TextButton from "../../molecules/TextButton/TextButton";
 import TextArea from "../../atoms/TextArea/TextArea";
 import styles from "./crearPost.module.css";
 import Modal from "../../molecules/Modal/Modal";
@@ -46,13 +47,33 @@ const CrearPost = () => {
             <div className={styles.areaTexto}>
               <TextArea placeholder="¿En que estas Pensando,Ignacia?"></TextArea>
             </div>
-            <div>
-              <Text>Agrega a tu publicación</Text>
-              <Icon type="image" color="#58C472"></Icon>
-              <Icon type="image" color="#58C472"></Icon>
-              <Icon type="smile" color="#58C472"></Icon>
-              <Icon type="image" color="#58C472"></Icon>
-              
+            <div className={styles.contenedorOpcionesGeneral}>
+              <div className={styles.contenedorOpciones}>
+                <div>
+                  <Text>Agrega a tu publicación</Text>
+                </div>
+                <div className={styles.icono}>
+                  <Icon type="image" color="#58C472" size="xlg"></Icon>
+                </div>
+                <div className={styles.icono}>
+                  <Icon type="person" color="#3085F3" size="xlg"></Icon>
+                </div>
+                <div className={styles.icono}>
+                  <Icon type="smile" color="#F8C03E" size="xlg"></Icon>
+                </div>
+                <div className={styles.icono}>
+                  <Icon type="location" color="#F66551" size="xlg"></Icon>
+                </div>
+                <div className={styles.icono}>
+                  <Icon type="gif" color="#40C2B0" size="xlg"></Icon>
+                </div>
+                <div className={styles.icono}>
+                  <Icon type="dots" color="black" size="xlg"></Icon>
+                </div>
+              </div>
+              <div className={styles.boton}>
+                <TextButton>Publicar</TextButton>
+              </div>
             </div>
           </div>
         </Modal>

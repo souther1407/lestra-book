@@ -49,3 +49,35 @@
   padding: 8px;
   height: 150px;
 }
+
+.contenedorOpcionesGeneral {
+  padding: 12px;
+}
+
+.contenedorOpciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.contenedorOpciones > div {
+  cursor: pointer;
+}
+.icono {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+}
+.icono:hover:hover {
+  background-color: rgba(0, 0, 0, 0.199);
+  border-radius: 50%;
+}
+
+.boton {
+  padding-top: 8px;
+}
