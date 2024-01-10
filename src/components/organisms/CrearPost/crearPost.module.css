@@ -1,0 +1,48 @@
+.contenedor {
+  box-shadow: 2px 2px 8px gainsboro;
+  border-radius: 8px;
+  margin: 8px;
+  padding: 8px;
+  width: 520px;
+}
+
+.contenedorGeneral {
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+}
+
+.areaPost {
+  font-size: 22px;
+  padding: 8px;
+  resize: none;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #f0f2f5;
+}
+.areaPost:hover {
+  background-color: #dfe0e2;
+}
+.areaPost:focus {
+  outline: none;
+}
+
+.contenedorConjuntoGeneral {
+  display: flex;
+  margin: 8px;
+}
+
+.contenedorConjunto {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  border-radius: 8px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.contenedorConjunto:hover {
+  background-color: #dfe0e2;
+}

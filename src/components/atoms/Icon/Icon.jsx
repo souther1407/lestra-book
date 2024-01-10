@@ -8,7 +8,9 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { IoChatbubbleOutline } from "react-icons/io5";
+import { IoChatbubbleOutline, IoImagesOutline } from "react-icons/io5";
+import { MdVideoCameraFront } from "react-icons/md";
+import { FaFaceGrin } from "react-icons/fa6";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FiSend } from "react-icons/fi";
@@ -45,6 +47,9 @@ const Icon = ({ type, size = "md", color, colorStroke = color }) => {
     github: <FaGithub {...props} />,
     twitter: <FaXTwitter {...props} />,
     send: <FiSend {...props} />,
+    camera: <MdVideoCameraFront {...props} />,
+    image: <IoImagesOutline {...props} />,
+    smile: <FaFaceGrin {...props} />,
   };
   return icons[type];
 };
