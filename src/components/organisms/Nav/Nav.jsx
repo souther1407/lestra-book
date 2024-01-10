@@ -11,13 +11,14 @@ import { useNavigate } from "react-router-dom";
 import { CHAT, LAST_NEWS, MY_POSTS } from "../../../constants/routes.js";
 import { useRouteStore } from "../../../stores/useRouteStore.js";
 
-const Nav = () => {
+const Nav = ({ onChangeRoute = () => {} }) => {
   const [showDrawer, setShowDrawer] = useState(false);
   const { credentials } = useUserStore((state) => state);
   const navigate = useNavigate();
   const { setRoute, currentRoute } = useRouteStore((state) => state);
 
   useEffect(() => {
+    onChangeRoute();
     navigate(currentRoute);
   }, [currentRoute]);
 
