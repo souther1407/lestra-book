@@ -8,15 +8,15 @@
 }
 
 .md {
-  font-size: 1rem;
-}
-
-.lg {
   font-size: 1.2rem;
 }
 
+.lg {
+  font-size: 1.6rem;
+}
+
 .xlg {
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 .primary {

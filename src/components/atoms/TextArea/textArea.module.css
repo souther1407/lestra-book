@@ -1,0 +1,16 @@
+.areaPost {
+  font-size: 22px;
+  padding: 8px;
+  resize: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: none;
+  background-color: #f0f2f5;
+}
+.areaPost:hover {
+  background-color: #dfe0e2;
+}
+.areaPost:focus {
+  outline: none;
+}
