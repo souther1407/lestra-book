@@ -3,12 +3,14 @@ import Title from "../../components/atoms/Title/Title";
 import PostCard from "../../components/organisms/PostCard/PostCard";
 import styles from "./posts.module.css";
 import Nav from "../../components/organisms/Nav/Nav";
+import CrearPost from "../../components/organisms/CrearPost/CrearPost";
 
 const Posts = () => {
   return (
     <div className={styles.posts}>
       <Nav />
       <Title>Que paso hoy?</Title>
+      <CrearPost></CrearPost>
       <div className={styles.postsList}>
         <PostCard
           author={"Ignacia Lestrada"}
