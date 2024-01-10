@@ -30,7 +30,10 @@ const Chat = () => {
   };
 
   const sendMsg = () => {
-    socket?.sendMsg(myMsg);
+    try {
+      socket?.sendMsg(myMsg);
+      setMyMsg("");
+    } catch (error) {}
   };
   useEffect(() => {
     if (credentials) {
@@ -83,6 +86,7 @@ const Chat = () => {
             <Input
               id={"msg"}
               variant="bordered"
+              value={myMsg}
               onChange={(id, value) => {
                 setMyMsg(value);
               }}
