@@ -5,11 +5,13 @@ import Chat from "./pages/Chat/Chat";
 import { Routes, Route } from "react-router-dom";
 import { useLogin } from "./hooks/useLogin";
 import { CHAT, LAST_NEWS, LOGIN, MY_POSTS } from "./constants/routes";
+import MyPost from "./pages/MyPost/MyPost";
 function App() {
   useLogin();
   return (
     <Routes>
       <Route path={LAST_NEWS} element={<Posts />} />
+      <Route path={MY_POSTS} element={<MyPost />} />
       <Route path={LOGIN} element={<Login />} />
       <Route path={CHAT} element={<Chat />} />
     </Routes>
