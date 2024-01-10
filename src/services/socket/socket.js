@@ -13,7 +13,7 @@ export class Socket {
     onConnected,
     onDisconnected
   ) {
-    this.socket = io("ws://localhost:8080?name=" + name);
+    this.socket = io("ws://192.168.0.103:8080?name=" + name);
     this.socket.on("msg", onMsg);
     this.socket.on("start-writing", onSomeoneIsWriting);
     this.socket.on("end-writing", onSomeoneIsStopWriting);
