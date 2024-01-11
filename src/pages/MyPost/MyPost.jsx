@@ -3,6 +3,7 @@ import Nav from "../../components/organisms/Nav/Nav";
 import styles from "./mypost.module.css";
 import PostCard from "../../components/organisms/PostCard/PostCard";
 import Title from "../../components/atoms/Title/Title";
+import PopOut from "../../components/molecules/PopOut/PopOut";
 
 const MyPost = () => {
   return (

@@ -4,6 +4,7 @@ import Avatar from "../../atoms/Avatar/Avatar";
 import Text from "../../atoms/Text/Text";
 import Icon from "../../atoms/Icon/Icon";
 import HeartButton from "../../molecules/HeartButton/HeartButton";
+import PopOut from "../../molecules/PopOut/PopOut";
 import moment from "moment";
 import {} from "moment";
 const parseDate = (timestamp) => {
@@ -21,9 +22,13 @@ const PostCard = ({
 }) => {
   return (
     <article className={styles.postCard}>
-      <header>
+      <header className={styles.header}>
         <div className={styles.author}>
-          <Avatar src={avatar} />
+          <PopOut
+            componente={() => {
+              return <Avatar src={avatar} />;
+            }}
+          ></PopOut>
           <div className={styles.authorInfo}>
             <Text bold>{author}</Text>
             <Text>{parseDate(date)}</Text>

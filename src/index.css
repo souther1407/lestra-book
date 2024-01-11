@@ -41,6 +41,7 @@ input:focus {
   --secondary-light: #ff7dd8;
   --success: #4fa8fb;
   --black: var(--textDark);
+  --shadow: gainsboro;
 }
 
 @media screen and (max-width: 480px) {
