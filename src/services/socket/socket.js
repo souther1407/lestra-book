@@ -13,7 +13,8 @@ export class Socket {
     onConnected,
     onDisconnected
   ) {
-    this.socket = io("ws://localhost:8080?name=" + name);
+    console.log(import.meta.env.VITE_URL_CHAT);
+    this.socket = io(import.meta.env.VITE_URL_CHAT + "?name=" + name);
     this.socket.on("msg", onMsg);
     this.socket.on("start-writing", onSomeoneIsWriting);
     this.socket.on("end-writing", onSomeoneIsStopWriting);
