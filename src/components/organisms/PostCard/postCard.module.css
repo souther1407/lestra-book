@@ -1,8 +1,8 @@
 .postCard {
   display: flex;
   flex-direction: column;
-  border: 1px solid gainsboro;
-  box-shadow: 2px 2px 8px gainsboro;
+  border: 1px solid var(--shadow);
+  box-shadow: 2px 2px 8px var(--shadow);
   background-color: white;
   width: 520px;
   border-radius: 8px;
