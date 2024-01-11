@@ -1,20 +1,21 @@
 import React from "react";
-import { useState } from "react";
 import RingLoader from "react-spinners/RingLoader";
 
-function Loading() {
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#dd211e");
-
+function Loading({
+  loading = "true",
+  color = "#dd211e",
+  size = "150",
+  speedMultiplier = "1.5",
+}) {
   return (
     <div className="sweet-loading">
       <RingLoader
         color={color}
         loading={loading}
-        size={150}
+        size={size}
         aria-label="Loading Spinner"
         data-testid="loader"
-        speedMultiplier="1.5"
+        speedMultiplier={speedMultiplier}
       />
     </div>
   );
