@@ -5,6 +5,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import { useEffect } from "react";
 
@@ -30,6 +31,8 @@ export const useLogin = () => {
     await signInWithEmailAndPassword(auth, user, pass);
     alert("Logueado");
   };
-
-  return { loginGoogle, loginUserPass };
+  const logOut = async () => {
+    await signOut(auth);
+  };
+  return { loginGoogle, loginUserPass, logOut };
 };
