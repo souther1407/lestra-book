@@ -4,6 +4,12 @@ import Avatar from "../../atoms/Avatar/Avatar";
 import Text from "../../atoms/Text/Text";
 import Icon from "../../atoms/Icon/Icon";
 import HeartButton from "../../molecules/HeartButton/HeartButton";
+import moment from "moment";
+import {} from "moment";
+const parseDate = (timestamp) => {
+  const parsed = moment(`${timestamp}`, "x").fromNow();
+  return parsed;
+};
 const PostCard = ({
   author,
   date,
@@ -20,7 +26,7 @@ const PostCard = ({
           <Avatar src={avatar} />
           <div className={styles.authorInfo}>
             <Text bold>{author}</Text>
-            <Text>{date}</Text>
+            <Text>{parseDate(date)}</Text>
           </div>
         </div>
       </header>

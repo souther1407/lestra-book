@@ -6,9 +6,29 @@ import TextButton from "../../molecules/TextButton/TextButton";
 import TextArea from "../../atoms/TextArea/TextArea";
 import styles from "./crearPost.module.css";
 import Modal from "../../molecules/Modal/Modal";
-
+import { addPost } from "../../../services/firestore/firestore.js";
+import { useUserStore } from "../../../stores/useUserStore.js";
 const CrearPost = () => {
   const [showModal, setShowModal] = useState(false);
+  const credentials = useUserStore((state) => state.credentials);
+  const [post, setPost] = useState({
+    msg: "",
+  });
+  const handleChange = (value) => {
+    setPost((prev) => ({ ...prev, msg: value }));
+  };
+  const handleSendPost = async () => {
+    try {
+      const newPosts = await addPost({
+        content: post.msg,
+        authorName: credentials.displayName,
+        avatar: credentials.photoURL,
+      });
+      alert("Post creado!");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   return (
     <div className={styles.contenedor}>
       <div className={styles.contenedorGeneral}>
@@ -45,7 +65,10 @@ const CrearPost = () => {
               </div>
             </div>
             <div className={styles.areaTexto}>
-              <TextArea placeholder="¿En que estas Pensando,Ignacia?"></TextArea>
+              <TextArea
+                placeholder="¿En que estas Pensando,Ignacia?"
+                onChange={(e) => handleChange(e.target.value)}
+              ></TextArea>
             </div>
             <div className={styles.contenedorOpcionesGeneral}>
               <div className={styles.contenedorOpciones}>
@@ -72,7 +95,7 @@ const CrearPost = () => {
                 </div>
               </div>
               <div className={styles.boton}>
-                <TextButton>Publicar</TextButton>
+                <TextButton onClick={handleSendPost}>Publicar</TextButton>
               </div>
             </div>
           </div>
