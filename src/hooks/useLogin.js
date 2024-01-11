@@ -5,6 +5,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   onAuthStateChanged,
+  GithubAuthProvider,
   signOut,
 } from "firebase/auth";
 import { useEffect } from "react";
@@ -27,6 +28,16 @@ export const useLogin = () => {
       alert(error.message);
     }
   };
+
+  const loginGithub = async () => {
+    try {
+      const provider = new GithubAuthProvider();
+      await signInWithPopup(auth, provider);
+      alert("Listo!");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   const loginUserPass = async (user, pass) => {
     await signInWithEmailAndPassword(auth, user, pass);
     alert("Logueado");
@@ -34,5 +45,5 @@ export const useLogin = () => {
   const logOut = async () => {
     await signOut(auth);
   };
-  return { loginGoogle, loginUserPass, logOut };
+  return { loginGoogle, loginUserPass, loginGithub, logOut };
 };
