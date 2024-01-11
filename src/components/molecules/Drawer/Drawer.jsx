@@ -11,7 +11,7 @@ const Drawer = ({ show, children, onClose }) => {
         <div className={styles.close} onClick={onClose}>
           <Icon size="xlg" type={"close"} />
         </div>
-        {children}
+        <div>{children}</div>
       </div>
     </div>
   );

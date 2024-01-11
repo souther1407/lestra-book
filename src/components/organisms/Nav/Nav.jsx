@@ -8,15 +8,23 @@ import Drawer from "../../molecules/Drawer/Drawer";
 import { useUserStore } from "../../../stores/useUserStore.js";
 import Logo from "../../../assets/LogoPosta.png";
 import { useNavigate } from "react-router-dom";
-import { CHAT, LAST_NEWS, MY_POSTS } from "../../../constants/routes.js";
+import { CHAT, LAST_NEWS, MY_POSTS, LOGIN } from "../../../constants/routes.js";
 import { useRouteStore } from "../../../stores/useRouteStore.js";
-
+import { useLogin } from "../../../hooks/useLogin.js";
 const Nav = ({ onChangeRoute = () => {} }) => {
   const [showDrawer, setShowDrawer] = useState(false);
   const { credentials } = useUserStore((state) => state);
   const navigate = useNavigate();
   const { setRoute, currentRoute } = useRouteStore((state) => state);
-
+  const { logOut } = useLogin();
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate(LOGIN);
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   useEffect(() => {
     onChangeRoute();
     navigate(currentRoute);
@@ -75,7 +83,9 @@ const Nav = ({ onChangeRoute = () => {} }) => {
           onClick={() => setShowDrawer(true)}
         />
         <Drawer show={showDrawer} onClose={() => setShowDrawer(false)}>
-          <TextButton>Cerrar Sesion</TextButton>
+          <div className={styles.menuDrawer}>
+            <TextButton onClick={handleLogout}>Cerrar Sesion</TextButton>
+          </div>
         </Drawer>
       </div>
     </nav>

@@ -8,6 +8,7 @@ import {
   getAllPosts,
   onNewPostCreated,
 } from "../../services/firestore/firestore";
+
 const Posts = () => {
   const [posts, setPosts] = useState([]);
 
