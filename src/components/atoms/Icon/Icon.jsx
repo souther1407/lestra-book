@@ -6,6 +6,7 @@ import {
   FaTimes,
   FaGoogle,
   FaGithub,
+  FaBirthdayCake,
 } from "react-icons/fa";
 import { FaXTwitter, FaLocationDot, FaFaceGrin } from "react-icons/fa6";
 import {
@@ -13,7 +14,7 @@ import {
   IoImagesOutline,
   IoPersonAdd,
 } from "react-icons/io5";
-import { MdVideoCameraFront, MdGifBox } from "react-icons/md";
+import { MdVideoCameraFront, MdGifBox, MdPersonAddAlt1 } from "react-icons/md";
 import { HiDotsHorizontal } from "react-icons/hi";
 
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
@@ -58,6 +59,8 @@ const Icon = ({ type, size = "md", color, colorStroke = color }) => {
     location: <FaLocationDot {...props} />,
     gif: <MdGifBox {...props} />,
     dots: <HiDotsHorizontal {...props} />,
+    cake: <FaBirthdayCake {...props} />,
+    person: <MdPersonAddAlt1 {...props} />,
     
   };
   return icons[type];

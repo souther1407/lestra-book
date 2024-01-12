@@ -42,6 +42,25 @@
   margin-right: 8px;
 }
 
+.contenedorPopOut {
+  padding: 16px;
+  display: flex;
+  gap: 8px;
+}
+
+.contenedorTextos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.contenedorSecciones {
+  display: flex;
+  gap: 8px;
+}
+.contenedorBotones {
+  display: flex;
+}
+
 @media screen and (max-width: 600px) {
   .postCard {
     width: 100%;
