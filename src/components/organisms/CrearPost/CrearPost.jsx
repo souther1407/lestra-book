@@ -8,9 +8,11 @@ import styles from "./crearPost.module.css";
 import Modal from "../../molecules/Modal/Modal";
 import { addPost } from "../../../services/firestore/firestore.js";
 import { useUserStore } from "../../../stores/useUserStore.js";
+import LoadingScreen from "../../molecules/LoadingScreen/LoadingScreen.jsx";
 const CrearPost = () => {
   const [showModal, setShowModal] = useState(false);
   const credentials = useUserStore((state) => state.credentials);
+  const [loading, setLoading] = useState(false);
   const [post, setPost] = useState({
     msg: "",
   });
@@ -19,6 +21,7 @@ const CrearPost = () => {
   };
   const handleSendPost = async () => {
     try {
+      setLoading(true);
       const newPosts = await addPost({
         content: post.msg,
         authorName: credentials.displayName,
@@ -27,13 +30,17 @@ const CrearPost = () => {
       alert("Post creado!");
     } catch (error) {
       alert(error.message);
+    } finally {
+      setLoading(false);
     }
   };
   return (
     <div className={styles.contenedor}>
+      {loading && <LoadingScreen />}
       <div className={styles.contenedorGeneral}>
         <Avatar
           src={
+            credentials?.photoURL ||
             "https://imgs.search.brave.com/VJdZ7LwDiZiFQeFoniOSwUEsz5OkKwAZG38N2G3Uq_Q/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cGF0aHNvY2lhbC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDUvYXZ0YXIt/aW1nMi1uZXctMS5q/cGVn"
           }
         ></Avatar>
@@ -56,6 +63,7 @@ const CrearPost = () => {
             <div className={styles.perfil}>
               <Avatar
                 src={
+                  credentials?.photoURL ||
                   "https://imgs.search.brave.com/VJdZ7LwDiZiFQeFoniOSwUEsz5OkKwAZG38N2G3Uq_Q/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/cGF0aHNvY2lhbC5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjIvMDUvYXZ0YXIt/aW1nMi1uZXctMS5q/cGVn"
                 }
               ></Avatar>

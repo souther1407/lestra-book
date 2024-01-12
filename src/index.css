@@ -33,6 +33,7 @@ input:focus {
 :root {
   --bg-light: #fdfdfd;
   --dark-transparent: rgba(36, 36, 36, 0.397);
+  --light-transparent: rgba(250, 250, 250, 0.25);
   --textDark: #222;
   --textLight: #eee;
   --primary: #ef2e24;

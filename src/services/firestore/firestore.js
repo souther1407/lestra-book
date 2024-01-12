@@ -4,6 +4,8 @@ import {
   setDoc,
   getDocs,
   onSnapshot,
+  query,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
@@ -13,12 +15,14 @@ export const addPost = async (data) => {
 };
 
 export const getAllPosts = async () => {
-  const results = await getDocs(collection(db, "posts"));
+  const results = await getDocs(
+    query(collection(db, "posts"), orderBy("created", "desc"))
+  );
   return results.docs.map((d) => d.data());
 };
 
 export const onNewPostCreated = (onUpdate, onError) => {
-  onSnapshot(collection(db, "posts"), {
+  onSnapshot(query(collection(db, "posts"), orderBy("created", "desc")), {
     next: (snapshot) => {
       const parsedPosts = snapshot.docs.map((post) => post.data());
       onUpdate(parsedPosts);
