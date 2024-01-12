@@ -4,6 +4,7 @@ import Avatar from "../../atoms/Avatar/Avatar";
 import Text from "../../atoms/Text/Text";
 import Icon from "../../atoms/Icon/Icon";
 import HeartButton from "../../molecules/HeartButton/HeartButton";
+import TextButton from "../../molecules/TextButton/TextButton";
 import PopOut from "../../molecules/PopOut/PopOut";
 import moment from "moment";
 import "moment/dist/locale/es.js";
@@ -29,7 +30,41 @@ const PostCard = ({
             componente={() => {
               return <Avatar src={avatar} />;
             }}
-          ></PopOut>
+          >
+            <div className={styles.contenedorPopOut}>
+              <div>
+                <Avatar src={avatar} size="xlg" />
+              </div>
+              <div className={styles.contenedorTextos}>
+                <div>
+                  <Text>{author}</Text>
+                </div>
+                <div className={styles.contenedorSecciones}>
+                  <Icon type="cake"></Icon>
+                  <Text>Cumpleaños el 30/23/3592</Text>
+                </div>
+                <div className={styles.contenedorSecciones}>
+                  <Icon type="person"></Icon>
+                  <Text>
+                    Se hizo amigo de Roberta Lestrada y 3 Personas mas{" "}
+                  </Text>
+                </div>
+              </div>
+            </div>
+            <div className={styles.contenedorBotones}>
+              <div>
+                <TextButton>
+                  <Icon type="person" size="lg"></Icon> Amigos
+                </TextButton>
+              </div>
+              <div>
+                <TextButton>Mensaje</TextButton>
+              </div>
+              <div>
+                <TextButton>...</TextButton>
+              </div>
+            </div>
+          </PopOut>
           <div className={styles.authorInfo}>
             <Text bold>{author}</Text>
             <Text>{parseDate(date)}</Text>

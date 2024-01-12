@@ -18,6 +18,11 @@
   height: 4rem;
 }
 
+.xlg {
+  width: 5rem;
+  height: 5rem;
+}
+
 .bordered {
   border: 4px solid var(--success);
 }

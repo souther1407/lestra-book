@@ -10,8 +10,6 @@
 
 .children {
   position: absolute;
-  width: 350px;
-  height: 250px;
   box-shadow: 0 0 16px var(--shadow);
   border-radius: 8px;
   padding: 8px;
