@@ -8,10 +8,10 @@ import {
   getAllPosts,
   onNewPostCreated,
 } from "../../services/firestore/firestore";
-
+import LoadingScreen from "../../components/molecules/LoadingScreen/LoadingScreen";
 const Posts = () => {
   const [posts, setPosts] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const handleNewPostsCreated = (posts) => {
     setPosts(posts);
   };
@@ -23,12 +23,14 @@ const Posts = () => {
           alert(error);
         });
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => alert(err.message))
+      .finally(() => setLoading(false));
   }, []);
 
   return (
     <div className={styles.posts}>
       <Nav />
+      {loading && <LoadingScreen />}
       <Title>Que paso hoy?</Title>
       <CrearPost></CrearPost>
       <div className={styles.postsList}>

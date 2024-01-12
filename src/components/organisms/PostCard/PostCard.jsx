@@ -6,7 +6,8 @@ import Icon from "../../atoms/Icon/Icon";
 import HeartButton from "../../molecules/HeartButton/HeartButton";
 import PopOut from "../../molecules/PopOut/PopOut";
 import moment from "moment";
-import {} from "moment";
+import "moment/dist/locale/es.js";
+
 const parseDate = (timestamp) => {
   const parsed = moment(`${timestamp}`, "x").fromNow();
   return parsed;

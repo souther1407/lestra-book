@@ -1,9 +1,9 @@
 .contenedor {
   box-shadow: 2px 2px 8px gainsboro;
   border-radius: 8px;
-  margin: 8px;
-  padding: 8px;
+  padding: 16px;
   width: 520px;
+  margin-bottom: 32px;
 }
 
 .contenedorGeneral {
