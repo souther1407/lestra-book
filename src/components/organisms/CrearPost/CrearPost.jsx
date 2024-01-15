@@ -26,6 +26,7 @@ const CrearPost = () => {
         content: post.msg,
         authorName: credentials.displayName,
         avatar: credentials.photoURL,
+        authorUid: credentials.uid,
       });
       alert("Post creado!");
     } catch (error) {
