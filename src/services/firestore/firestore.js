@@ -6,6 +6,7 @@ import {
   onSnapshot,
   query,
   orderBy,
+  where,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 
@@ -17,6 +18,17 @@ export const addPost = async (data) => {
 export const getAllPosts = async () => {
   const results = await getDocs(
     query(collection(db, "posts"), orderBy("created", "desc"))
+  );
+  return results.docs.map((d) => d.data());
+};
+
+export const getMyPosts = async (uid) => {
+  const results = await getDocs(
+    query(
+      collection(db, "posts"),
+      where("authorUid", "==", uid),
+      orderBy("created", "desc")
+    )
   );
   return results.docs.map((d) => d.data());
 };
