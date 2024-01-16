@@ -52,15 +52,13 @@ const PostCard = ({
               </div>
             </div>
             <div className={styles.contenedorBotones}>
-              <div>
-                <TextButton>
-                  <Icon type="person" size="lg"></Icon> Amigos
-                </TextButton>
+              <div className={styles.boton1}>
+                <TextButton>Amigos</TextButton>
               </div>
-              <div>
+              <div className={styles.boton2}>
                 <TextButton>Mensaje</TextButton>
               </div>
-              <div>
+              <div className={styles.boton3}>
                 <TextButton>...</TextButton>
               </div>
             </div>
