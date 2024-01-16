@@ -16,6 +16,20 @@ const CrearPost = () => {
   const [post, setPost] = useState({
     msg: "",
   });
+  const [selectedImage, setSelectedImage] = useState(null);
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setSelectedImage(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
   const handleChange = (value) => {
     setPost((prev) => ({ ...prev, msg: value }));
   };
@@ -29,6 +43,7 @@ const CrearPost = () => {
         authorUid: credentials.uid,
       });
       alert("Post creado!");
+      handleChange("");
     } catch (error) {
       alert(error.message);
     } finally {
@@ -51,7 +66,7 @@ const CrearPost = () => {
             className={styles.areaPost}
             cols="30"
             rows="2"
-            placeholder="¿En que estas Pensando,Ignacia?"
+            placeholder={"¿En que estas Pensando," + credentials?.displayName}
           ></TextArea>
         </div>
 
@@ -69,15 +84,30 @@ const CrearPost = () => {
                 }
               ></Avatar>
               <div className={styles.contenedorTexto}>
-                <Text>Ignacia Lestrada</Text>
+                {credentials?.displayName}
                 <Text size="sm">amigos</Text>
               </div>
             </div>
             <div className={styles.areaTexto}>
-              <TextArea
-                placeholder="¿En que estas Pensando,Ignacia?"
-                onChange={(e) => handleChange(e.target.value)}
-              ></TextArea>
+              <div>
+                <TextArea
+                  value={post.msg}
+                  placeholder={
+                    "¿En que estas Pensando," + credentials?.displayName
+                  }
+                  onChange={(e) => handleChange(e.target.value)}
+                ></TextArea>
+              </div>
+
+              {selectedImage && (
+                <div className={styles.imagenCargada}>
+                  <img
+                    src={selectedImage}
+                    alt="Imagen Cargada"
+                    style={{ maxWidth: "100%" }}
+                  />
+                </div>
+              )}
             </div>
             <div className={styles.contenedorOpcionesGeneral}>
               <div className={styles.contenedorOpciones}>
@@ -85,7 +115,16 @@ const CrearPost = () => {
                   <Text>Agrega a tu publicación</Text>
                 </div>
                 <div className={styles.icono}>
-                  <Icon type="image" color="#58C472" size="xlg"></Icon>
+                  <label htmlFor="subir-imagen">
+                    <Icon type="image" color="#58C472" size="xlg"></Icon>
+                    <input
+                      type="file"
+                      accept=".jpg,.png,.jpeg"
+                      className={styles.input}
+                      id="subir-imagen"
+                      onChange={handleImageChange}
+                    />
+                  </label>
                 </div>
                 <div className={styles.icono}>
                   <Icon type="person" color="#3085F3" size="xlg"></Icon>

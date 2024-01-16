@@ -48,10 +48,17 @@
 .areaTexto {
   padding: 8px;
   height: 150px;
+  overflow: auto;
 }
 
 .contenedorOpcionesGeneral {
   padding: 12px;
+}
+.input{
+  display: none;
+}
+.imagenCargada{
+  display: flex;
 }
 
 .contenedorOpciones {
