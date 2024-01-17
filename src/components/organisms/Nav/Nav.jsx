@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { CHAT, LAST_NEWS, MY_POSTS, LOGIN } from "../../../constants/routes.js";
 import { useRouteStore } from "../../../stores/useRouteStore.js";
 import { useLogin } from "../../../hooks/useLogin.js";
+import Icon from "../../atoms/Icon/Icon.jsx";
 const Nav = ({ onChangeRoute = () => {} }) => {
   const [showDrawer, setShowDrawer] = useState(false);
   const { credentials } = useUserStore((state) => state);
@@ -84,7 +85,47 @@ const Nav = ({ onChangeRoute = () => {} }) => {
         />
         <Drawer show={showDrawer} onClose={() => setShowDrawer(false)}>
           <div className={styles.menuDrawer}>
-            <TextButton onClick={handleLogout}>Cerrar Sesion</TextButton>
+            <div className={styles.avatar}>
+              <Avatar
+                src={
+                  credentials
+                    ? credentials.photoURL
+                    : "https://imgs.search.brave.com/6Logd6Iw8_Z7K-vEiVPKlvlRn3Xl2d4fMUMaVKMMQLc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA2LzE2LzExLzcw/LzM2MF9GXzYxNjEx/NzA3MV9OdTJLbVNl/bjcxYXBrYlhjQVlP/T2YyampjTEptcDRs/Qi5qcGc"
+                }
+              ></Avatar>
+              {credentials?.displayName}
+            </div>
+            <hr></hr>
+            <div className={styles.botones}>
+              <div className={styles.icono}>
+                <Icon type="settings" size="xlg"></Icon>
+              </div>
+              <Text>Configuracion y Privacidad</Text>
+            </div>
+            <div className={styles.botones}>
+              <div className={styles.icono}>
+                <Icon type="question" size="xlg"></Icon>
+              </div>
+              <Text>Ayuda y Soporte Tecnico</Text>
+            </div>
+            <div className={styles.botones}>
+              <div className={styles.icono}>
+                <Icon type="dark" size="xlg"></Icon>
+              </div>
+              <Text>Pantalla y Accesibilidad</Text>
+            </div>
+            <div className={styles.botones}>
+              <div className={styles.icono}>
+                <Icon type="comment" size="xlg"></Icon>
+              </div>
+              <Text>Enviar Comentarios</Text>
+            </div>
+            <div className={styles.botones} onClick={handleLogout}>
+              <div className={styles.icono}>
+                <Icon type="exit" size="xlg"></Icon>
+              </div>
+              <Text>Cerrar Sesión</Text>
+            </div>
           </div>
         </Drawer>
       </div>

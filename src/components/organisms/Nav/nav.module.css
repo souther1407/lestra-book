@@ -41,6 +41,42 @@
 .menuDrawer {
   padding: 8px;
 }
+
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+.avatar:hover {
+  background-color: #b6b8bd;
+  border-radius: 8px;
+}
+
+.botones {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 16px;
+  margin-top: 4px;
+}
+.botones:hover {
+  background-color: #b6b8bd;
+}
+
+.icono {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #d8dadf;
+  border-radius: 50%;
+}
 @media screen and (max-width: 480px) {
   .nav {
     justify-content: space-around;

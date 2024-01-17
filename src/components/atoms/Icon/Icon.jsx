@@ -7,18 +7,20 @@ import {
   FaGoogle,
   FaGithub,
   FaBirthdayCake,
+  FaMoon,
 } from "react-icons/fa";
 import { FaXTwitter, FaLocationDot, FaFaceGrin } from "react-icons/fa6";
-import {
-  IoChatbubbleOutline,
-  IoImagesOutline,
-  IoPersonAdd,
-} from "react-icons/io5";
+import { IoChatbubbleOutline, IoImagesOutline } from "react-icons/io5";
 import { MdVideoCameraFront, MdGifBox, MdPersonAddAlt1 } from "react-icons/md";
 import { HiDotsHorizontal } from "react-icons/hi";
-
+import { IoMdSettings } from "react-icons/io";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { FiSend } from "react-icons/fi";
+import {
+  BsFillQuestionCircleFill,
+  BsEnvelopeExclamation,
+  BsDoorOpenFill,
+} from "react-icons/bs";
 const parseSize = (size) => {
   switch (size) {
     case "sm":
@@ -60,6 +62,11 @@ const Icon = ({ type, size = "md", color, colorStroke = color }) => {
     dots: <HiDotsHorizontal {...props} />,
     cake: <FaBirthdayCake {...props} />,
     person: <MdPersonAddAlt1 {...props} />,
+    settings: <IoMdSettings {...props} />,
+    question: <BsFillQuestionCircleFill {...props} />,
+    dark: <FaMoon {...props} />,
+    comment: <BsEnvelopeExclamation {...props} />,
+    exit: <BsDoorOpenFill {...props} />,
   };
   return icons[type];
 };
