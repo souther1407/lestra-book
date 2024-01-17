@@ -54,11 +54,19 @@
 .contenedorOpcionesGeneral {
   padding: 12px;
 }
-.input{
+.input {
   display: none;
 }
-.imagenCargada{
+.imagenCargada {
   display: flex;
+  position: relative;
+  padding: 32px;
+  background-color: var(--shadow);
+}
+.iconoCerrar {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
 }
 
 .contenedorOpciones {

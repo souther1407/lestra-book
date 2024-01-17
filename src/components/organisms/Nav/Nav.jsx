@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./nav.module.css";
 import Text from "../../atoms/Text/Text";
+import Logo from "../../atoms/Logo/Logo";
 import Avatar from "../../atoms/Avatar/Avatar";
 import IconButton from "../../molecules/IconButton/IconButton";
 import TextButton from "../../molecules/TextButton/TextButton";
 import Drawer from "../../molecules/Drawer/Drawer";
 import { useUserStore } from "../../../stores/useUserStore.js";
-import Logo from "../../../assets/LogoPosta.png";
 import { useNavigate } from "react-router-dom";
 import { CHAT, LAST_NEWS, MY_POSTS, LOGIN } from "../../../constants/routes.js";
 import { useRouteStore } from "../../../stores/useRouteStore.js";
@@ -32,7 +32,7 @@ const Nav = ({ onChangeRoute = () => {} }) => {
 
   return (
     <nav className={styles.nav}>
-      <img src={Logo} className={styles.logo} />
+      <Logo size="sm"></Logo>
       <div className={styles.sections}>
         <div
           className={`${styles.section} ${

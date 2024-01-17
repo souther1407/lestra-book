@@ -55,13 +55,11 @@ const Icon = ({ type, size = "md", color, colorStroke = color }) => {
     camera: <MdVideoCameraFront {...props} />,
     image: <IoImagesOutline {...props} />,
     smile: <FaFaceGrin {...props} />,
-    person: <IoPersonAdd {...props} />,
     location: <FaLocationDot {...props} />,
     gif: <MdGifBox {...props} />,
     dots: <HiDotsHorizontal {...props} />,
     cake: <FaBirthdayCake {...props} />,
     person: <MdPersonAddAlt1 {...props} />,
-    
   };
   return icons[type];
 };

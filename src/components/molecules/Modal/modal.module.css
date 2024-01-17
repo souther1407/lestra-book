@@ -20,7 +20,7 @@
 .container {
   padding-top: 64px;
   border-radius: 8px;
-  min-width: 520px;
+  width: 520px;
   height: 400px;
   transform: scale(0);
   background-color: white;

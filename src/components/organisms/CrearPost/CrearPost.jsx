@@ -9,10 +9,13 @@ import Modal from "../../molecules/Modal/Modal";
 import { addPost } from "../../../services/firestore/firestore.js";
 import { useUserStore } from "../../../stores/useUserStore.js";
 import LoadingScreen from "../../molecules/LoadingScreen/LoadingScreen.jsx";
+import EmojiPicker from "emoji-picker-react";
+
 const CrearPost = () => {
   const [showModal, setShowModal] = useState(false);
   const credentials = useUserStore((state) => state.credentials);
   const [loading, setLoading] = useState(false);
+  const [emoji, setEmoji] = useState(false);
   const [post, setPost] = useState({
     msg: "",
   });
@@ -96,11 +99,22 @@ const CrearPost = () => {
                     "¿En que estas Pensando," + credentials?.displayName
                   }
                   onChange={(e) => handleChange(e.target.value)}
+                  onClick={() => {
+                    setEmoji(false);
+                  }}
                 ></TextArea>
               </div>
 
               {selectedImage && (
                 <div className={styles.imagenCargada}>
+                  <div
+                    className={styles.iconoCerrar}
+                    onClick={() => {
+                      setSelectedImage("");
+                    }}
+                  >
+                    <Icon type="close" size="xlg"></Icon>
+                  </div>
                   <img
                     src={selectedImage}
                     alt="Imagen Cargada"
@@ -129,7 +143,28 @@ const CrearPost = () => {
                 <div className={styles.icono}>
                   <Icon type="person" color="#3085F3" size="xlg"></Icon>
                 </div>
-                <div className={styles.icono}>
+                <div
+                  className={styles.icono}
+                  onClick={() => {
+                    setEmoji(true);
+                  }}
+                >
+                  {emoji && (
+                    <div>
+                      <EmojiPicker
+                        autoFocusSearch={false}
+                        width="400px"
+                        height="300px"
+                        onEmojiClick={(emoji) => {
+                          setPost((prev) => ({
+                            ...prev,
+                            msg: prev.msg + emoji.emoji,
+                          }));
+                        }}
+                      />
+                    </div>
+                  )}
+
                   <Icon type="smile" color="#F8C03E" size="xlg"></Icon>
                 </div>
                 <div className={styles.icono}>
