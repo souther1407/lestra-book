@@ -19,7 +19,7 @@ const CrearPost = () => {
   const [post, setPost] = useState({
     msg: "",
   });
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState("");
   const handleImageChange = (e) => {
     const file = e.target.files[0];
 
@@ -44,9 +44,11 @@ const CrearPost = () => {
         authorName: credentials.displayName,
         avatar: credentials.photoURL,
         authorUid: credentials.uid,
+        media: selectedImage,
       });
       alert("Post creado!");
       handleChange("");
+      setSelectedImage("");
     } catch (error) {
       alert(error.message);
     } finally {
