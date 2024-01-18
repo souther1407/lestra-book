@@ -40,6 +40,7 @@ const Posts = () => {
             author={p.authorName}
             avatar={p.avatar}
             date={p.created}
+            media={p?.media}
             content={p.content}
             comments={10}
             likes={15}
