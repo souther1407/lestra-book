@@ -4,7 +4,6 @@ import Text from "../../atoms/Text/Text";
 import Logo from "../../atoms/Logo/Logo";
 import Avatar from "../../atoms/Avatar/Avatar";
 import IconButton from "../../molecules/IconButton/IconButton";
-import TextButton from "../../molecules/TextButton/TextButton";
 import Drawer from "../../molecules/Drawer/Drawer";
 import { useUserStore } from "../../../stores/useUserStore.js";
 import { useNavigate } from "react-router-dom";

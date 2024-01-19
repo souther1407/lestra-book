@@ -74,6 +74,22 @@
 .boton3 {
   width: 50px;
 }
+.cajaComentarios {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.contenedorComentarios {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0 12px 8px;
+  gap: 16px;
+}
+.comentarios {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 @media screen and (max-width: 600px) {
   .postCard {
