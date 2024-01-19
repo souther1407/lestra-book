@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./textArea.module.css";
 
-const TextArea = ({ onChange, ...props }) => {
-  const [rows, setRows] = useState(3);
+const TextArea = ({ initialRows = 3, onChange, ...props }) => {
+  const [rows, setRows] = useState(initialRows);
   const [height, setHeight] = useState(0);
   const handleChange = (e) => {
     if (height != 0 && height < e.target.scrollHeight) {
@@ -11,7 +11,7 @@ const TextArea = ({ onChange, ...props }) => {
     onChange(e);
     setHeight(e.target.scrollHeight);
     if (e.target.value === "") {
-      setRows(3);
+      setRows(initialRows);
     }
   };
   return (
