@@ -28,11 +28,12 @@ const MyPost = () => {
         <Title>Mis Publicaciones</Title>
         {posts.map((p) => (
           <PostCard
+            id={p.id}
             author={p.authorName}
             date={p.created}
             avatar={p.avatar}
             content={p.content}
-            likes="2"
+            likes={p.likes}
             comments="1"
             media={p.media}
           ></PostCard>

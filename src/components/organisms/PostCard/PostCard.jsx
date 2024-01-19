@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./postCard.module.css";
 import Avatar from "../../atoms/Avatar/Avatar";
 import Text from "../../atoms/Text/Text";
@@ -7,8 +7,10 @@ import HeartButton from "../../molecules/HeartButton/HeartButton";
 import TextButton from "../../molecules/TextButton/TextButton";
 import PopOut from "../../molecules/PopOut/PopOut";
 import moment from "moment";
+import { toggleLike } from "../../../services/firestore/firestore";
+import { useUserStore } from "../../../stores/useUserStore";
 import "moment/dist/locale/es.js";
-
+import { onLikesUpdated } from "../../../services/firestore/firestore";
 const parseDate = (timestamp) => {
   const parsed = moment(`${timestamp}`, "x").fromNow();
   return parsed;
@@ -20,8 +22,21 @@ const PostCard = ({
   content,
   likes,
   comments,
+  id,
   media,
 }) => {
+  const [updatedLikes, setUpdatedLikes] = useState(likes);
+  const credentials = useUserStore((state) => state.credentials);
+  const handleLike = async () => {
+    await toggleLike(credentials.uid, id);
+    try {
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  useEffect(() => {
+    onLikesUpdated(id, (newValue) => setUpdatedLikes(newValue));
+  }, []);
   return (
     <article className={styles.postCard}>
       <header className={styles.header}>
@@ -75,8 +90,8 @@ const PostCard = ({
       </main>
       <footer>
         <div className={styles.reaction}>
-          <HeartButton />
-          <Text>{likes}</Text>
+          <HeartButton onClick={handleLike} />
+          <Text>{updatedLikes}</Text>
         </div>
         <div className={styles.reaction}>
           <Icon type="bubble" size="xlg" color={"var(--success)"}></Icon>
