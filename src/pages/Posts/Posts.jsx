@@ -12,16 +12,11 @@ import LoadingScreen from "../../components/molecules/LoadingScreen/LoadingScree
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const handleNewPostsCreated = (posts) => {
-    setPosts(posts);
-  };
+
   useEffect(() => {
     getAllPosts()
       .then((data) => {
         setPosts(data);
-        onNewPostCreated(handleNewPostsCreated, (error) => {
-          alert(error);
-        });
       })
       .catch((err) => alert(err.message))
       .finally(() => setLoading(false));
@@ -37,13 +32,14 @@ const Posts = () => {
         {posts.map((p) => (
           <PostCard
             key={p.id}
+            id={p.id}
             author={p.authorName}
             avatar={p.avatar}
             date={p.created}
             media={p?.media}
             content={p.content}
             comments={10}
-            likes={15}
+            likes={p.likes}
           />
         ))}
       </div>
