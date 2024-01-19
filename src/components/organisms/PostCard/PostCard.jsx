@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import styles from "./postCard.module.css";
 import Avatar from "../../atoms/Avatar/Avatar";
@@ -14,7 +13,6 @@ import { toggleLike } from "../../../services/firestore/firestore";
 import { useUserStore } from "../../../stores/useUserStore";
 import "moment/dist/locale/es.js";
 import { onLikesUpdated } from "../../../services/firestore/firestore";
-import { useUserStore } from "../../../stores/useUserStore.js";
 const parseDate = (timestamp) => {
   const parsed = moment(`${timestamp}`, "x").fromNow();
   return parsed;
